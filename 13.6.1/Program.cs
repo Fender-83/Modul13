@@ -10,21 +10,29 @@ namespace _13._6._1
     {
         static void Main(string[] args)
         {
-            var time = Stopwatch.StartNew(); 
-            
+            var timeLinkedList = Stopwatch.StartNew(); 
             LinkedList<string> listLinked = new LinkedList<string>();
             listLinked.AddFirst(File.ReadAllText("C:\\Users\\Fender\\Desktop\\Text1(1).txt"));
-            Console.WriteLine($"Производительность с использованием LinkedList<T> составила: {time.Elapsed.TotalMilliseconds} мс.");
-            
+            var time1 = timeLinkedList.Elapsed.TotalSeconds;
+            Console.WriteLine($"Производительность с использованием LinkedList<T> составила: {time1} мс.");
             Console.WriteLine();
 
+            var timeList = Stopwatch.StartNew();
             List<string> list = new List<string>();
             list = File.ReadLines("C:\\Users\\Fender\\Desktop\\Text1(1).txt").ToList();
-            Console.WriteLine($"Производительность с использованием List<T> составила:{ time.Elapsed.TotalMilliseconds} мс.");
-            var result2 = time;
+            var time2 = timeList.Elapsed.TotalSeconds;
+            Console.WriteLine($"Производительность с использованием List<T> составила:{time2} мс.");
 
-          
-            Console.WriteLine() ;
+            Console.WriteLine();
+
+            if ( time1 > time2 ) 
+            {
+            Console.WriteLine("Производительность LinkedList<T> больше, чем List<T> в " + Math.Round(time2 / time1,2) + " раз");
+            }
+            else
+            {
+            Console.WriteLine("Производительность LinkedList<T> меньше, чем List<T> в " + Math.Round(time2 / time1,2) + " раз");
+            }
         }
     }
 }
