@@ -33,6 +33,7 @@ namespace _13._6._1
             {
             Console.WriteLine("Производительность LinkedList<T> меньше, чем List<T> в " + Math.Round(time2 / time1,2) + " раз");
             }
+            Console.WriteLine();
         }
     }
 }
